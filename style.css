@@ -209,7 +209,7 @@ display: none;
 
 @media screen and (min-width: 100px) and (max-width: 512px) {
     .todoContainer {
-        height: 90%;
+        height: 85%;
         width: 80%;
     }
     .bigCircle{
