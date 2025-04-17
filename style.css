@@ -98,12 +98,25 @@ color: #dadada;
 }
 .todobodycontent{
 display: flex;
-align-items: center;
-justify-content: center;
 flex-direction: column;
 gap: 0.5rem;
 padding: 0.5rem 0rem;
 overflow-y: auto;
+}
+.todobodycontent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todobodycontent::-webkit-scrollbar-track {
+  background: #dadada;
+  border-radius: 10px;
+}
+
+.todobodycontent::-webkit-scrollbar-thumb {
+  background-color: var(--cyan);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 .contents{
 height: fit-content;
@@ -152,6 +165,10 @@ transition: opacity 0.2s ease;
 }
 input[type="checkbox"]:checked::after {
 opacity: 1;
+}
+input[type="checkbox"]:checked + #taskTitle {
+    text-decoration: line-through;
+    color: gray;
 }
 .addicon{
 position: absolute;
