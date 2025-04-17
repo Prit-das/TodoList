@@ -75,8 +75,12 @@ submit.addEventListener("click", () => {
 
 
 window.addEventListener('load',()=>{
-    records = JSON.parse(localStorage.getItem('todoRecords'));
-    records.forEach(record => {
-        appendTodo(record.title,record.dateIn)
-    })
+  records = JSON.parse(localStorage.getItem('todoRecords'));
+    if (records) {
+        records.forEach(record => {
+            appendTodo(record.title,record.dateIn)
+        })     
+    }else {
+      records = [];
+    }
 })
