@@ -205,3 +205,16 @@ display: block;
 .disableInp{
 display: none;
 }
+
+@media screen and (min-width: 100px) and (max-width: 512px) {
+    .todoContainer {
+        height: 75%;
+        width: 80%;
+    }
+}
+@media screen and (min-width: 513px) and (max-width: 913px) {
+    .todoContainer {
+        height: 75%;
+        width: 50%;
+    }
+}
