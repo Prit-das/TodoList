@@ -10,9 +10,9 @@ let submit = document.querySelector('#submit');
 let data = addinlist.querySelectorAll('input');
 let records = [];
 
-let now = new Date();
+let today = new Date();
 
-let formattedDate = now.toLocaleDateString('en-GB', {
+let formattedDate = today.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
