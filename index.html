@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="script.js" defer></script>
     <title>ToDoList</title>
 </head>
+
 <body>
     <!-- outerwrapper -->
     <div class="outerWrapper">
@@ -20,35 +22,39 @@
                 <div class="icon" id="">
                     <i class="bi bi-chevron-left"></i>
                 </div>
-                <h4>Todo List</h4>   
+                <h4>Todo List</h4>
                 <div class="icon" id="">
                     <i class="bi bi-three-dots-vertical"></i>
-                </div>   
+                </div>
             </div>
             <div class="todobody">
-              <div class="todobodyhead">
-                <p id="day">Today</p>
-                <p id="date">16 April 2025</p>
-              </div>
-              <div class="todobodycontent">
-                <!-- <div class="contents">
+                <div class="todobodyhead">
+                    <p id="day">Today</p>
+                    <p id="date">16 April 2025</p>
+                </div>
+                <div class="todobodycontent">
+                    <!-- <div class="contents">
                     <div class="radioP">
                         <input type="checkbox">
                         <p id="taskTitle">Task Title</p>
                     </div>
                     <p id="time">6:00 am</p>
                 </div> -->
-              </div> 
+                </div>
             </div>
             <div class="addicon">
                 <i id="icon" class="bi bi-plus-circle-fill"></i>
             </div>
             <div id="addinlist" class="disableInp">
-                <input type="text"maxlength="12" placeholder="input task title">
-                <input type="time">
+                <input id="title_input" type="text" maxlength="12" placeholder="input task title">
+                <input id="date_input" type="time">
                 <button id="submit">Save</button>
             </div>
         </div>
     </div>
+
+
+    
 </body>
+
 </html>

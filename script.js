@@ -1,83 +1,82 @@
-let todobody = document.querySelector('.todobody');
-let day = document.querySelector('#day');
-let date = document.querySelector('#date');
-let todolist = document.querySelector('.todobodycontent');
-let addicon = document.querySelector('.addicon');
-let icon = document.querySelector('#icon');
-let addinlist = document.querySelector('#addinlist');
-let submit = document.querySelector('#submit');
+let todobody = document.querySelector(".todobody");
+let day = document.querySelector("#day");
+let date = document.querySelector("#date");
+let todolist = document.querySelector(".todobodycontent");
+let addicon = document.querySelector(".addicon");
+let icon = document.querySelector("#icon");
+let addinlist = document.querySelector("#addinlist");
+let submit = document.querySelector("#submit");
 
-let data = addinlist.querySelectorAll('input');
+let titleInput = document.querySelector("#title_input");
+let dateInput = document.querySelector("#date_input");
+
 let records = [];
-
 let today = new Date();
 
-let formattedDate = today.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
+let formattedDate = today.toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
 });
 date.textContent = `${formattedDate}`;
 
+addicon.addEventListener("click", () => {
+  if (addinlist.classList.contains("disableInp")) {
+    addinlist.classList.toggle("disableInp");
+    addinlist.classList.toggle("activeInput");
+    todobody.classList.add("blur");
+    icon.className = "bi bi-dash-circle-fill";
+  } else {
+    addinlist.classList.toggle("activeInput");
+    addinlist.classList.toggle("disableInp");
+    todobody.classList.remove("blur");
+    icon.className = "bi bi-plus-circle-fill";
+  }
+});
 
-addicon.addEventListener('click', () => {
-    if (addinlist.classList.contains('disableInp')) {
-        addinlist.classList.toggle('disableInp');
-        addinlist.classList.toggle('activeInput');
-        todobody.classList.add('blur');
-        icon.className = 'bi bi-dash-circle-fill';
-    }
-    else{
-        addinlist.classList.toggle('activeInput');
-        addinlist.classList.toggle('disableInp');
-        todobody.classList.remove('blur');
-        icon.className = 'bi bi-plus-circle-fill';
-    }
-})
-submit.addEventListener('click', () => {
+function appendTodo(title,dateIn){
 
-    let isEmpty = false;
-    data.forEach((input) => {
-        if (input.value.trim() === '') {
-            isEmpty = true;
-        }
-    });
+    let html = `<div class="contents">
+                    <div class="radioP">
+                        <input type="checkbox">
+                        <p id="taskTitle">${title}</p>
+                    </div>
+                    <p>${dateIn}</p>
+                </div>`
 
-    if (isEmpty) {
-        return;
-    }
+  todolist.insertAdjacentHTML('beforeend',html);
+}
 
-    let todocontent = document.createElement('div');
-    todocontent.className = 'contents';
 
-    let radioTitle = document.createElement('div');
-    radioTitle.className = 'radioP';
+function addTodo() {
+  let title = titleInput.value;
+  let dateIn = dateInput.value;
+  let todo = {
+    title,
+    dateIn,
+  };
+  if (title.trim() == "" && dateIn.trim() == "") {
+    return;
+  }
+  records.push(todo);
+  localStorage.setItem('todoRecords',JSON.stringify(records));
+  appendTodo(title,dateIn);
+  dateInput.value = '';
+  titleInput.value = '';
+}
 
-    let check = document.createElement('input');
-    check.type = 'checkbox';
+submit.addEventListener("click", () => {
+  addTodo();
+  addinlist.classList.remove("activeInput");
+  addinlist.classList.add("disableInp");
+  icon.className = "bi bi-plus-circle-fill";
+  todobody.classList.remove("blur");
+});
 
-    let taskTitle = document.createElement('p');
-    taskTitle.id = 'taskTitle';
 
-    let time = document.createElement('p');
-
-    todolist.appendChild(todocontent);
-    todocontent.appendChild(radioTitle);
-    radioTitle.appendChild(check);
-    radioTitle.appendChild(taskTitle);
-    todocontent.appendChild(time);
-
-    data.forEach((input)=>{
-        records.push(input.value);
-        input.value = '';
+window.addEventListener('load',()=>{
+    records = JSON.parse(localStorage.getItem('todoRecords'));
+    records.forEach(record=>{
+        appendTodo(record.title,record.dateIn)
     })
-
-    let len = records.length;
-    taskTitle.textContent = records[len - 2];
-    time.textContent = records[len - 1];
-
-    addinlist.classList.remove('activeInput');
-    addinlist.classList.add('disableInp');
-    icon.className = 'bi bi-plus-circle-fill';
-    todobody.classList.remove('blur');
 })
