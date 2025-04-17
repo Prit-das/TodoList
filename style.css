@@ -219,6 +219,9 @@ display: none;
     .smCircle{
         transform: translateY(-35%) translateX(55%) rotate(22deg);
     }
+    .todohead{
+        height: 10%;
+    }
 }
 @media screen and (min-width: 513px) and (max-width: 913px) {
     .todoContainer {
