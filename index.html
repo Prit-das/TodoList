@@ -4,121 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>To Do List</title>
-    <style>
-        *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        html, body{
-        height: 100%;
-        width: 100%;
-        background-color: #dadada;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
-        .container{
-        position: relative;
-        height: fit-content;
-        width: fit-content;
-        background-color: rgb(254, 154, 174);
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 0.2rem 0.2rem 0.5rem rgb(79, 26, 36);
-        }
-        h3{
-        color: crimson;
-        text-align: center;
-        margin-bottom: 0.5rem;
-        }
-        input{
-        outline: none;
-        border: 1px solid crimson;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        }
-        #btn{
-        border: 0;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        color: #dadada;
-        background-color: crimson;
-        cursor: pointer;
-        transition: all 0.5s;
-        }
-        #btn:hover{
-        color: crimson;
-        background-color: #dadada;
-        }
-        #list{
-        margin: 0.5rem 1.2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        }
-        .done{
-        color: crimson;
-        font-weight: 800;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>ToDoList</title>
 </head>
 <body>
-
-    <div class="container">
-        <h3>Task List</h3>
-        <input type="text" placeholder="Input items to add">
-        <button id="btn">Add in List</button>
-        <div class="listCont">
-            <ul id="list"></ul>
+    <!-- outerwrapper -->
+    <div class="outerWrapper">
+        <!-- ovals -->
+        <div class="bigCircle"></div>
+        <div class="smCircle"></div>
+        <!-- Todo container -->
+        <div class="todoContainer">
+            <div class="todohead">
+                <div class="icon" id="">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <h4>Todo List</h4>   
+                <div class="icon" id="">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </div>   
+            </div>
+            <div class="todobody">
+              <div class="todobodyhead">
+                <p id="day">Today</p>
+                <p id="date">16 April 2025</p>
+              </div>
+              <div class="todobodycontent">
+                <!-- <div class="contents">
+                    <div class="radioP">
+                        <input type="checkbox">
+                        <p id="taskTitle">Task Title</p>
+                    </div>
+                    <p id="time">6:00 am</p>
+                </div> -->
+              </div> 
+            </div>
+            <div class="addicon">
+                <i id="icon" class="bi bi-plus-circle-fill"></i>
+            </div>
+            <div id="addinlist" class="disableInp">
+                <input type="text" placeholder="input task title">
+                <input type="text" placeholder="input time">
+                <button id="submit">Save</button>
+            </div>
         </div>
     </div>
-
-    <script>
-        let inp = document.querySelector('input');
-        let btn = document.querySelector('#btn');
-        let list = document.querySelector('#list');
-
-        btn.addEventListener('click', () => {
-        if (inp.value === '') return;
-
-            let li = document.createElement('li');
-            li.textContent = inp.value;
-
-            // icon
-            let icon = document.createElement('i');
-            icon.className = "bi bi-x-circle";
-            icon.style.cursor = "pointer";
-            icon.style.marginLeft = "10px";
-
-            let icon2 = document.createElement('i');
-            icon2.className = "bi bi-check-circle-fill";
-            icon2.style.cursor = "pointer";
-            icon2.style.marginLeft = "10px";
-
-            // icon click
-            icon.addEventListener('click', () => {
-                li.remove();
-            });
-
-            // icon2 click
-            icon2.addEventListener('click', () => {
-                li.classList.add('done');
-            });
-
-            // icon in li
-            li.appendChild(icon);
-            li.appendChild(icon2);
-
-            // li in list
-            list.appendChild(li);
-
-            // clear input
-            inp.value = '';
-            });
-
-    </script>
 </body>
 </html>

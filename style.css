@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --cyan : #0EB6AA;
+    --gray : #151515;
+    --lightgray : #201F1F;
+    --font : "Montserrat";
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: var(--font);
+}
+html, body{
+height: 100%;
+width: 100%;
+}
+.outerWrapper{
+height: 100%;
+width: 100%;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #dadada;
+overflow: hidden;
+}
+.bigCircle{
+height: 92%;
+width: 90%;
+background-color: var(--cyan);
+position: absolute;
+border-radius: 50%;
+left: -20%;
+transform: translateY(-30%) rotate(-25deg);
+}
+.smCircle{
+height: 75%;
+width: 65%;
+background-color: var(--gray);
+position: absolute;
+border-radius: 50%;
+transform: translateY(-40%) translateX(68%) rotate(22deg);
+}
+.todoContainer{
+position: relative;
+z-index: 30;
+height: 75%;
+width: 20%;
+background-color: var(--gray);
+border-radius: 1rem;
+box-shadow: 0px 2px 10px #383636;
+}
+.todohead{
+position: relative;
+height: 15%;
+width: 100%;
+background-color: var(--cyan);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0rem 1rem;
+border-radius: 1rem 1rem 0rem 0rem;
+}
+.icon{
+height: 3rem;
+width: 3rem;
+border-radius: 50%;
+background-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.5s;
+}
+.icon i{
+font-size: 1.5rem;
+}
+.icon:hover{
+background-color: var(--gray);
+}
+.icon:hover i{
+color: var(--cyan);
+}
+.todobody{
+height: 85%;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem;
+}
+.blur {
+filter: blur(4px);
+transition: 0.3s ease;
+}
+.todobodyhead p{
+color: #dadada;
+}
+.todobodycontent{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 0.5rem;
+padding: 0.5rem 0rem;
+overflow-y: auto;
+}
+.contents{
+height: fit-content;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: #dadada;
+padding: 1rem 0.5rem;
+background-color: var(--lightgray);
+border-radius: 0.2rem;
+}
+.contents .radioP{
+display: flex;
+align-items: center;
+gap: 0.5rem;
+color: #dadada;
+}
+.radioP input[type="checkbox"] {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+appearance: none;
+-webkit-appearance: none;
+width: 1.5rem;
+height: 1.5rem;
+border: 2px solid #dadada;
+border-radius: 50%;
+cursor: pointer;
+outline: none;
+background-color: transparent;
+transition: all 0.2s ease;
+}
+.radioP input[type="checkbox"]::after {
+content: '';
+position: absolute;
+bottom: 35%;
+width: 5px;
+height: 0.5rem;
+border: solid #dadada;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+opacity: 0;
+transition: opacity 0.2s ease;
+}
+input[type="checkbox"]:checked::after {
+opacity: 1;
+}
+.addicon{
+position: absolute;
+right: 10%;
+bottom: 5%;
+cursor: pointer;
+transition: all 0.5s;
+}
+.addicon:hover{
+transform: scale(1.1);
+}
+.addicon i{
+color: var(--cyan);
+font-size: 3rem;
+}
+#addinlist{
+position: absolute;
+top: 50%;
+left: 50%;
+background-color: #383636;
+transform: translate(-50%, -50%);
+padding: 1rem;
+border-radius: .5rem;
+z-index: 40;
+}
+#addinlist input{
+background-color: transparent;
+color: #dadada;
+outline: none;
+padding: 0.2rem 0.4rem;
+border: 1px solid #dadada;
+border-radius: 0.2rem;
+margin-bottom: 0.4rem;
+}
+#addinlist button{
+background-color: transparent;
+color: #dadada;
+padding: 0.2rem 0.5rem;
+border: 1px solid #dadada;
+border-radius: 0.2rem;
+cursor: pointer;
+transition: all 0.5s;
+}
+#addinlist button:hover{
+background-color: var(--cyan);
+color: var(--lightgray);
+}
+.activeInput{
+display: block;
+}
+.disableInp{
+display: none;
+}
