@@ -57,6 +57,7 @@ submit.addEventListener('click', () => {
     check.type = 'checkbox';
 
     let taskTitle = document.createElement('p');
+    taskTitle.id = 'taskTitle';
 
     let time = document.createElement('p');
 

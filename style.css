@@ -167,8 +167,8 @@ input[type="checkbox"]:checked::after {
 opacity: 1;
 }
 input[type="checkbox"]:checked + #taskTitle {
-    text-decoration: line-through;
-    color: gray;
+text-decoration: line-through;
+color: gray;
 }
 .addicon{
 position: absolute;
