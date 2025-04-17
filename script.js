@@ -77,5 +77,6 @@ submit.addEventListener('click', () => {
 
     addinlist.classList.remove('activeInput');
     addinlist.classList.add('disableInp');
+    icon.className = 'bi bi-plus-circle-fill';
     todobody.classList.remove('blur');
 })

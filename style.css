@@ -211,10 +211,35 @@ display: none;
         height: 75%;
         width: 80%;
     }
+    .bigCircle{
+        left: -5%;
+        transform: translateY(-45%) rotate(-25deg);
+    }
+    .smCircle{
+        transform: translateY(-35%) translateX(55%) rotate(22deg);
+    }
 }
 @media screen and (min-width: 513px) and (max-width: 913px) {
     .todoContainer {
         height: 75%;
         width: 50%;
+    }
+    .bigCircle{
+        left: -10%;
+    }
+    .smCircle{
+        transform: translateY(-40%) translateX(60%) rotate(22deg);
+    }
+}
+@media screen and (min-width: 914px) and (max-width: 1220px) {
+    .todoContainer {
+        height: 75%;
+        width: 50%;
+    }
+    .bigCircle{
+        left: -10%;
+    }
+    .smCircle{
+        transform: translateY(-40%) translateX(60%) rotate(22deg);
     }
 }
