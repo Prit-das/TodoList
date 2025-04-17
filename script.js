@@ -44,7 +44,7 @@ function appendTodo(title,dateIn){
                     <p>${dateIn}</p>
                 </div>`
 
-  todolist.insertAdjacentHTML('beforeend',html);
+    todolist.insertAdjacentHTML('beforeend',html);
 }
 
 
@@ -76,7 +76,7 @@ submit.addEventListener("click", () => {
 
 window.addEventListener('load',()=>{
     records = JSON.parse(localStorage.getItem('todoRecords'));
-    records.forEach(record=>{
+    records.forEach(record => {
         appendTodo(record.title,record.dateIn)
     })
 })
