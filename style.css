@@ -71,6 +71,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 transition: all 0.5s;
+cursor: pointer;
 }
 .icon i{
 font-size: 1.5rem;
@@ -80,6 +81,29 @@ background-color: var(--gray);
 }
 .icon:hover i{
 color: var(--cyan);
+}
+.items{
+position: absolute;
+padding: 0.7rem 1rem;
+background-color: var(--cyan);
+border-radius: 0.5rem;
+top: 80%;
+right: 2rem;
+opacity: 1;
+transition: all 0.5s;
+box-shadow: 0px 2px 10px #383636;
+}
+.disableMenu{
+opacity: 0;
+}
+.itemOne{
+text-decoration: none;
+color: var(--gray);
+font-size: small;
+transition: all 0.5s;
+}
+.itemOne:hover{
+font-weight: 700;
 }
 .todobody{
 height: 85%;
