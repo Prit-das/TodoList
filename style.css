@@ -159,6 +159,7 @@ right: 10%;
 bottom: 5%;
 cursor: pointer;
 transition: all 0.5s;
+border-radius: 50%;
 }
 .addicon:hover{
 transform: scale(1.1);
@@ -208,7 +209,7 @@ display: none;
 
 @media screen and (min-width: 100px) and (max-width: 512px) {
     .todoContainer {
-        height: 75%;
+        height: 90%;
         width: 80%;
     }
     .bigCircle{
